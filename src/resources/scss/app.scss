@@ -1,0 +1,13 @@
+@import 'variable';
+
+.test{
+    background-color: red;
+}
+
+header{
+    color: $red-color;
+}
+
+footer{
+    background-color: aqua;
+}
