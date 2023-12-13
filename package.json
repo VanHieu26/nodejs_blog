@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon --inspect src/index.js",
-    "watch" :"node-sass --watch src/resources/scss/ --output src/public/css/"
+    "watch": "node-sass --watch src/resources/scss/ --output src/public/css/",
+    "beautiful": "prettier --single-quote --trailing-comma all --tab-width 4 --write 'src/**/*.{js,json,scss}' "
   },
   "repository": {
     "type": "git",
@@ -22,13 +23,28 @@
     "url": "https://github.com/VanHieu26/nodejs_blog/issues"
   },
   "homepage": "https://github.com/VanHieu26/nodejs_blog#readme",
+  "lint-staged": {
+    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "dependencies": {
     "express": "^4.18.2",
     "express-handlebars": "^7.1.2",
-    "nodemon": "^3.0.2"
+    "method-override": "^3.0.0",
+    "mongoose": "^6.12.3",
+    "mongoose-delete": "^0.5.4",
+    "nodemon": "^3.0.2",
+    "mongoose-slug-generator": "^1.0.4"
   },
   "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
     "morgan": "^1.10.0",
-    "node-sass": "^9.0.0"
+    "node-sass": "^9.0.0",
+    "prettier": "^3.1.1"
   }
 }
